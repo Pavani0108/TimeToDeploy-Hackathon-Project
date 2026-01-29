@@ -32,7 +32,14 @@ def generate_deployment_dataset(rows=1000):
             visa_delay = 0   # ✅ No visa delay at all
 
         # Go-live urgency
-        golive_status = random.choice(["Normal", "Urgent"])
+        golive_status = random.choice([
+        "Pipeline",
+        "Planning Phase",
+        "Go-Live Confirmed",
+        "Go-Live Critical (<30 days)",
+        "Project Delayed"
+    ])
+
 
         # Deployment time calculation
         deployment_days = 10
@@ -40,8 +47,18 @@ def generate_deployment_dataset(rows=1000):
         deployment_days += onboarding * 1.2
         deployment_days += visa_delay
 
-        if golive_status == "Urgent":
-            deployment_days -= random.randint(2, 5)
+        if golive_status == "Go-Live Critical (<30 days)":
+            deployment_days -= random.randint(4, 7)
+
+        elif golive_status == "Go-Live Confirmed":
+            deployment_days -= random.randint(2, 4)
+
+        elif golive_status == "Planning Phase":
+            deployment_days -= random.randint(0, 2)
+
+        elif golive_status == "Project Delayed":
+            deployment_days += random.randint(3, 6)
+
 
         deployment_days = max(5, round(deployment_days))
 
