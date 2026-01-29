@@ -1,114 +1,103 @@
-# 🚀 TimeToDeploy-Hackathon-Project  
-### AI-Driven Deployment Timeline Prediction System
+🚀 TimeToDeploy-Hackathon-Project
+AI-Driven Deployment Timeline Prediction System
+📌 Problem Statement
 
----
+Build an AI-driven system that predicts the time required to deploy a candidate or employee onto a project by analyzing historical deployment data and current readiness signals.
 
-## 📌 Problem Statement
+The system uses a combination of time series forecasting and regression models to factor in:
 
-Delivery and staffing teams often struggle to accurately estimate how long it will take to deploy a candidate onto a project.
+Skill alignment duration
 
-This system predicts deployment time by analyzing:
+Onboarding turnaround time (TAT)
 
-- Skill alignment duration (missing skill gaps)
-- Onboarding turnaround time (TAT)
-- Visa readiness with country-based delay impact
-- Project go-live urgency
-- Historical deployment trends
+Visa readiness
 
----
+Project go-live status
 
-## ✅ Solution Overview
+By leveraging these signals, the solution enables delivery and staffing teams to set realistic deployment timelines, proactively identify risks, and make informed staffing decisions.
 
-This backend system is powered by:
+✅ Solution Overview
 
-### 🔹 Regression Model (XGBoost)
-Predicts candidate-specific deployment timeline based on readiness factors.
+TimeToDeploy is designed as a backend-driven AI system with a frontend dashboard.
 
-### 🔹 Time-Series Forecasting (Prophet)
-Forecasts overall staffing trend delays across upcoming days.
+🔹 Regression Model (XGBoost)
 
-### 🔹 Gemini AI Advisor (LLM)
-Generates actionable staffing recommendations based on delay breakdown.
+Predicts candidate-specific deployment timelines based on readiness factors.
 
----
+🔹 Time-Series Forecasting (Prophet)
 
-## ✅ Key Features
+Analyzes historical deployment trends to capture delays and seasonality patterns.
 
-✔ Deployment time prediction (days)  
-✔ Candidate availability date estimation  
-✔ Prediction confidence score (%)  
-✔ Deployment risk category with staffing action  
-✔ Visa delay breakdown by country  
-✔ Forecast trend insight using Prophet  
-✔ Gemini AI recommendation for delivery planning  
-✔ Metrics endpoint for evaluation  
+🔹 Gemini AI Advisor (LLM)
 
+Generates explainable, business-friendly insights and staffing recommendations.
 
-# ✅ Backend Run Steps
+✅ Key Features
 
-### Step 1: Create a Virtual Environment
+✔ Deployment time prediction (days)
+✔ Candidate availability date estimation
+✔ Prediction confidence score (%)
+✔ Deployment risk categorization
+✔ Visa readiness impact by country
+✔ Historical trend-based forecasting
+✔ Gemini AI-driven recommendations
+✔ API metrics for evaluation
 
-Create a virtual environment using the command:
+🛠️ Project Setup & Run Instructions
 
-From folder structure: TimeToDeploy-Hackathon-Project\backend 
+The project consists of:
+
+Backend (FastAPI + ML models)
+
+Frontend (Dashboard UI)
+
+🔹 Backend Setup & Run
+Step 1: Navigate to Backend Directory
+cd backend
+
+Step 2: Create a Virtual Environment
 python -m venv env
 
-# Activate it:
+Step 3: Activate the Virtual Environment
 
-# Windows:
+Windows
 
 env\Scripts\activate
 
-# Mac/Linux:
+
+Mac / Linux
 
 source env/bin/activate
 
-# Step 2: Install the Requirements
-
-Install the requirements using the command:
-
+Step 4: Install Backend Dependencies
 pip install -r requirements.txt
 
-# Step 3: Generate the Synthetic Data
-
-Generate the Synthetic data by running the command:
-
-python generate_data.py
-
-
-This creates a realistic dataset with:
-
-Skill gap delays
-
-Onboarding turnaround variation
-
-Visa delays by country
-
-Deployment timelines for training
-
-# Step 4: Train the Models
-
-Train the models using the command:
-
-python train.py
-
-
-This trains:
-
-✅ XGBoost Regression Model
-✅ Prophet Forecasting Model
-
-Models are saved temporarily inside:
-
-app/temp_storage/
-
-# Step 5: Run the FastAPI Backend
-
-Run the project by using the command:
-
+Step 5: Run the FastAPI Backend
 uvicorn app.main:app --reload
 
 
-Server will start at:
+Backend will be available at:
 
 http://127.0.0.1:8000
+
+🔹 Frontend Setup & Run
+Step 6: Navigate to Frontend Directory
+
+Open a new terminal and run:
+
+cd frontend
+
+Step 7: Install Frontend Dependencies
+npm install
+
+Step 8: Run the Frontend Application
+npm run dev
+
+
+Frontend will start at:
+
+http://localhost:5173
+
+💡 Business Value
+
+TimeToDeploy enables predictable workforce deployment by combining AI-driven forecasting with explainable insights—reducing deployment delays, optimizing staffing decisions, and accelerating revenue realization.
