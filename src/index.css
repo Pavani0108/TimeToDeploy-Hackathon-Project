@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------- */
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dark .glass {
+  background: rgba(30, 41, 59, 0.55);
+}
+
+/* Strong glass */
+.glass-strong {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+}
+
+.dark .glass-strong {
+  background: rgba(15, 23, 42, 0.75);
+}
+
+/* ---------------------------- */
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(
+    to right,
+    #6366f1,
+    #8b5cf6,
+    #ec4899
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------------------------- */
+/* Gradient Background */
+.gradient-bg {
+  background: linear-gradient(
+    to right,
+    #6366f1,
+    #8b5cf6,
+    #ec4899
+  );
+  color: white;
+}
+
+/* ---------------------------- */
+/* Slow Pulse Animation */
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 4s ease-in-out infinite;
+}
+
+/* ---------------------------- */
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
+
+/* Card base */
+.card-ui {
+  @apply rounded-xl border bg-white dark:bg-[#0b0f2a]
+  border-gray-200 dark:border-white/10
+  shadow-sm hover:shadow-md transition;
+}
+
+/* Section card */
+.section-card {
+  @apply rounded-xl border bg-white dark:bg-[#0b0f2a]
+  border-gray-200 dark:border-white/10
+  shadow-sm;
+}
+
+/* Soft glass */
+.glass {
+  @apply bg-white/70 dark:bg-white/5 backdrop-blur;
+}
+
+/* Gradient button */
+.gradient-bg {
+  @apply bg-gradient-to-r from-purple-600 to-pink-500
+  text-white;
+}
+
+/* Stat icon container */
+.stat-icon {
+  @apply w-12 h-12 rounded-xl
+  flex items-center justify-center
+  bg-purple-100 dark:bg-purple-500/20
+  text-purple-600 dark:text-purple-400;
+}
+
+.input-icon {
+  @apply absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4
+  text-gray-400 dark:text-gray-500;
+}
+select option {
+  background-color: white;
+  color: #111;
+}
+
+.dark select option {
+  background-color: #0b1022;
+  color: white;
+}
